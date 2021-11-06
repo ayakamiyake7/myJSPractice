@@ -32,57 +32,61 @@
   // console.log(points[1].y);
   // alert("hello");
   // //https://dotinstall.com/lessons/basic_javascript_objects_v2/52324
-  let i = 0;
-  function setTimeout() {
-    console.log(new Date());
-    i++;
-    if (i > 3) {
-      clearInterval(intervalId);
-    }
-  }
-  const intervalId = setInterval(setTimeout, 1000); //なぜこの位置なのか？
-
+  // let i = 0;
+  // function setTimeout() {
+  //   console.log(new Date());
+  //   i++;
+  //   if (i > 3) {
+  //     clearInterval(intervalId);
+  //   }
+  // }
+  // const intervalId = setInterval(setTimeout, 1000); //なぜこの位置なのか？
   //https://dotinstall.com/lessons/basic_javascript_objects_v2/52325
-  function showTime() {
-    console.log(new Date());
-  }
-  showTime(); //これでもいける？
+  // function showTime() {
+  //   console.log(new Date());
+  // }
+  // showTime(); //これでもいける？
+  // class Post {
+  //   constructor(text) {
+  //     this.text = text;
+  //     this.likeCount = 0;
+  //   }
+  //   show() {
+  //     console.log(`${this.text} - ${this.likeCount}likes`);
+  //   }
+  //   like() {
+  //     this.likeCount++;
+  //     this.show(); //これになるのが分からない
+  //   }
+  //   static showInfo() {
+  //     console.log("Post class version 1.0");
+  //   }
+  // }
+  // class SponsoredPost extends Post {
+  //   constructor(text, sponsor) {
+  //     super(text);
+  //     this.sponsor = sponsor;
+  //   }
+  //   show() {
+  //     super.show();
+  //     console.log(`... sponsored by ${this.sponsor}`);
+  //   }
+  // }
+  // const posts = [
+  //   new Post("JavaScriptを勉強中..."),
+  //   new Post("プログラミング楽しい！"),
+  //   new SponsoredPost("3分動画でマスター", "dotinstall"),
+  // ];
+  // posts[2].show();
+  // posts[2].like();
+  ///////////////////////////////////////////////
+  //DOM編
+  //セレクトボックス
+  // https://dotinstall.com/lessons/basic_javascript_dom_v2/52914
 
-  class Post {
-    constructor(text) {
-      this.text = text;
-      this.likeCount = 0;
+  document.querySelector("ul").addEventListener("click", e => {
+    if (e.target.nodeName === "LI") {
+      e.target.classList.toggle("done");
     }
-
-    show() {
-      console.log(`${this.text} - ${this.likeCount}likes`);
-    }
-
-    like() {
-      this.likeCount++;
-      this.show(); //これになるのが分からない
-    }
-    static showInfo() {
-      console.log("Post class version 1.0");
-    }
-  }
-  class SponsoredPost extends Post {
-    constructor(text, sponsor) {
-      super(text);
-      this.sponsor = sponsor;
-    }
-
-    show() {
-      super.show();
-      console.log(`... sponsored by ${this.sponsor}`);
-    }
-  }
-  const posts = [
-    new Post("JavaScriptを勉強中..."),
-    new Post("プログラミング楽しい！"),
-    new SponsoredPost("3分動画でマスター", "dotinstall"),
-  ];
-
-  posts[2].show();
-  posts[2].like();
+  });
 }
