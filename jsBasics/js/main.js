@@ -32,21 +32,21 @@
   // console.log(points[1].y);
   // alert("hello");
   // //https://dotinstall.com/lessons/basic_javascript_objects_v2/52324
-  // let i = 0;
-  // function setTimeout() {
-  //   console.log(new Date());
-  //   i++;
-  //   if (i > 3) {
-  //     clearInterval(intervalId);
-  //   }
-  // }
-  // const intervalId = setInterval(setTimeout, 1000); //なぜこの位置なのか？
+  let i = 0;
+  function setTimeout() {
+    console.log(new Date());
+    i++;
+    if (i > 3) {
+      clearInterval(intervalId);
+    }
+  }
+  const intervalId = setInterval(setTimeout, 1000); //なぜこの位置なのか？
 
   //https://dotinstall.com/lessons/basic_javascript_objects_v2/52325
-  // function showTime() {
-  //   console.log(new Date());
-  // }
-  // showTime(); //これでもいける？
+  function showTime() {
+    console.log(new Date());
+  }
+  showTime(); //これでもいける？
 
   class Post {
     constructor(text) {
