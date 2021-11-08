@@ -1,17 +1,22 @@
 "use strict";
+{
+  const menuItems = document.querySelectorAll(".menu li a");
+  const contents = document.querySelectorAll(".content");
 
-const open = document.getElementById("open");
-const mask = document.getElementById("mask");
-const modal = document.getElementById("modal");
-const close = document.getElementById("close");
-open.addEventListener("click", () => {
-  mask.classList.remove("hidden");
-  modal.classList.remove("hidden");
-});
-close.addEventListener("click", () => {
-  mask.classList.add("hidden");
-  modal.classList.add("hidden");
-});
-mask.addEventListener("click", () => {
-  close.click();
-});
+  menuItems.forEach(clickedItem => {
+    clickedItem.addEventListener("click", e => {
+      e.preventDefault();
+
+      menuItems.forEach(item => {
+        item.classList.remove("active");
+      });
+      clickedItem.classList.add("active");
+
+      contents.forEach(item => {
+        item.classList.remove("active");
+      });
+      document.getElementById(clickedItem.dataset.id).classList.add("active");
+      console.log(clickedItem.dataset.id);
+    });
+  });
+}
