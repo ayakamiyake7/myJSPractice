@@ -1,46 +1,120 @@
+/* hamburger menu */
 body {
-  font-size: 14px;
-}
-
-.container {
-  margin: 30px auto;
-  width: 500px;
-}
-
-.menu {
-  list-style: none;
-  padding: 0;
   margin: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+header {
   display: flex;
+  padding: 0 16px;
+}
+header h1 {
+  margin: 0;
+  font-size: 22px;
+  line-height: 64px;
+}
+.sp-menu {
+  margin: 0 0 0 auto;
 }
 
-.menu li a {
-  display: inline-block;
-  width: 100px;
-  text-align: center;
-  padding: 8px 0;
-  color: #333;
-  text-decoration: none;
-  border-radius: 4px 4px 0 0;
+.sp-menu #open {
+  font-size: 32px;
+  line-height: 64px;
+  cursor: pointer;
 }
 
-.menu li a.active {
-  background: #333;
-  color: #fff;
-}
-
-.menu li a:not(.active):hover {
-  opacity: 0.5;
-  transition: opacity 0.4s;
-}
-.content.active {
-  background: #333;
-  color: #fff;
-  min-height: 150px;
-  padding: 12px;
-  display: block;
-}
-
-.content {
+.sp-menu #open.hide {
   display: none;
+}
+
+main {
+  padding: 0 16px;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.95);
+  text-align: center;
+  padding: 64px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s;
+}
+
+.overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.overlay #close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 32px;
+  cursor: pointer;
+}
+
+.overlay ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.overlay li {
+  margin: 24px 0 0 0;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.overlay.show li {
+  opacity: 1;
+  transform: none;
+}
+.overlay.show li:nth-child(1) {
+  transition-duration: 0.1s;
+}
+
+.overlay.show li:nth-child(2) {
+  transition-duration: 0.2s;
+}
+.overlay.show li:nth-child(3) {
+  transition-duration: 0.3s;
+}
+
+.pc-menu {
+  display: none;
+}
+
+@media (min-width: 600px) {
+  .pc-menu {
+    display: block;
+    margin-left: auto;
+  }
+
+  .pc-menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+
+  .pc-menu a {
+    display: block;
+    width: 80px;
+    line-height: 64px;
+    text-align: center;
+  }
+
+  .pc-menu a:hover {
+    background: #f2f2f2;
+  }
+
+  .sp-menu {
+    display: none;
+  }
 }
